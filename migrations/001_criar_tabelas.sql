@@ -49,3 +49,6 @@ CREATE TABLE estatisticas (
     FOREIGN KEY (id_lutador) REFERENCES lutadores(id_lutador),
     FOREIGN KEY (id_evento) REFERENCES eventos(id_evento)
 );
+-- Usuário administrador inicial
+INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+VALUES ('Mateus', 'mateus.f.chaves6@aluno.senai.br', '$2y$10$MFqrrnRf1r30HXr5fU8uSOkUvv11K5c6SpuFujK.7R3FRwxX7MPSe', 'admin');
