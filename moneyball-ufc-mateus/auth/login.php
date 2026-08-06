@@ -1,8 +1,14 @@
 <?php
+
 session_start();
 require_once __DIR__ . '/../config/conexao.php';
 
 $erro = '';
+
+if (isset($_SESSION['usuario_id'])) {
+    header('Location: ../public/dashboard.php');
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
@@ -11,20 +17,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($email === '' || $senha === '') {
         $erro = 'Preencha e-mail e senha.';
     } else {
-        $stmt = $pdo->prepare('SELECT id_usuario, nome, senha_hash, tipo_usuario FROM usuarios WHERE email = :email');
+        $pdo = conectarBanco();
+
+        $stmt = $pdo->prepare('SELECT id, nome, senha_hash, tipo FROM usuarios WHERE email = :email LIMIT 1');
         $stmt->execute(['email' => $email]);
         $usuario = $stmt->fetch();
 
         if ($usuario && password_verify($senha, $usuario['senha_hash'])) {
-            $_SESSION['id_usuario']   = $usuario['id_usuario'];
-            $_SESSION['nome']         = $usuario['nome'];
-            $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
+            $_SESSION['usuario_id']   = $usuario['id'];
+            $_SESSION['usuario_nome'] = $usuario['nome'];
+            $_SESSION['usuario_tipo'] = $usuario['tipo'];
 
-            header('Location: ../dashboard.php');
+            header('Location: ../public/dashboard.php');
             exit;
-        } else {
-            $erro = 'E-mail ou senha inválidos.';
         }
+
+        $erro = 'E-mail ou senha inválidos.';
     }
 }
 ?>
@@ -35,19 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login - Moneyball UFC</title>
 </head>
 <body>
-    <h1>Moneyball UFC - Login</h1>
+    <h1>Login</h1>
 
     <?php if ($erro): ?>
         <p style="color:red;"><?= htmlspecialchars($erro) ?></p>
     <?php endif; ?>
 
     <form method="POST" action="login.php">
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" required>
-
-        <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha" required>
-
+        <label>E-mail:
+            <input type="email" name="email" required>
+        </label><br>
+        <label>Senha:
+            <input type="password" name="senha" required>
+        </label><br>
         <button type="submit">Entrar</button>
     </form>
 </body>
