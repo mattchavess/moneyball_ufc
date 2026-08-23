@@ -166,6 +166,34 @@ function buscarLutadorComEstatisticas($conexao, $lutadorId) {
     return $lutador;
 }
 
+// Busca um lutador + a estatística de UMA temporada específica
+// (usado na tela de Comparação - RF23/RF24, o diferencial obrigatório).
+// Se $temporada vier vazio, usa a temporada mais recente cadastrada.
+function buscarLutadorPorTemporada($conexao, $lutadorId, $temporada = "") {
+    $lutador = buscarLutadorComEstatisticas($conexao, $lutadorId);
+
+    if (!$lutador || count($lutador["estatisticas"]) === 0) {
+        return $lutador; // sem estatística nenhuma cadastrada ainda
+    }
+
+    if ($temporada === "") {
+        // estatisticas já vem ordenado DESC, então [0] é a mais recente
+        $lutador["temporada_selecionada"] = $lutador["estatisticas"][0];
+        return $lutador;
+    }
+
+    foreach ($lutador["estatisticas"] as $stat) {
+        if ($stat["temporada"] === $temporada) {
+            $lutador["temporada_selecionada"] = $stat;
+            return $lutador;
+        }
+    }
+
+    // Não achou a temporada pedida — devolve null nesse campo
+    $lutador["temporada_selecionada"] = null;
+    return $lutador;
+}
+
 // Atualiza os dados cadastrais de um lutador (RF10 - editar)
 // Não mexe nas estatísticas — isso fica separado, feito por
 // adicionarEstatistica() quando o usuário adiciona uma nova temporada.
