@@ -87,6 +87,7 @@ $usuarios = listarUsuarios($conexao);
             <th>E-mail</th>
             <th>Tipo</th>
             <th>Criado em</th>
+            <th>Ação</th>
         </tr>
         <?php foreach ($usuarios as $u): ?>
             <tr>
@@ -94,6 +95,7 @@ $usuarios = listarUsuarios($conexao);
                 <td><?php echo htmlspecialchars($u["email"]); ?></td>
                 <td><?php echo htmlspecialchars($u["tipo"]); ?></td>
                 <td><?php echo htmlspecialchars($u["criado_em"]); ?></td>
+                <td><a href="editar_usuario.php?id=<?php echo $u["id"]; ?>">Editar</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
