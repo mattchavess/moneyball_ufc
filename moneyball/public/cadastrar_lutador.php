@@ -74,6 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <h1>Cadastrar Novo Lutador</h1>
 
@@ -182,5 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a href="lutadores.php">Cancelar</a>
     </form>
 
+    </main>
+</div>
 </body>
 </html>

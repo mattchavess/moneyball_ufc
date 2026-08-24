@@ -45,6 +45,9 @@ $usuarios = listarUsuarios($conexao);
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <h1>Usuários</h1>
     <p><?php echo count($usuarios); ?> usuários cadastrados</p>
@@ -95,5 +98,7 @@ $usuarios = listarUsuarios($conexao);
         <?php endforeach; ?>
     </table>
 
+    </main>
+</div>
 </body>
 </html>

@@ -57,6 +57,9 @@ if (!$lutador) {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <a href="lutador_detalhe.php?id=<?php echo $lutadorId; ?>">&larr; Voltar</a>
 
@@ -134,5 +137,7 @@ if (!$lutador) {
         <button type="submit" class="botao-perigo">Excluir Lutador</button>
     </form>
 
+    </main>
+</div>
 </body>
 </html>

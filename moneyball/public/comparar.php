@@ -28,6 +28,9 @@ $lutador2 = $id2 > 0 ? buscarLutadorPorTemporada($conexao, $id2, $temporada2) : 
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <h1>Comparação de Lutadores</h1>
     <p>Compare estatísticas por temporada, evolução e carreira</p>
@@ -167,5 +170,7 @@ $lutador2 = $id2 > 0 ? buscarLutadorPorTemporada($conexao, $id2, $temporada2) : 
         <p>Selecione os DOIS lutadores para comparar.</p>
     <?php endif; ?>
 
+    </main>
+</div>
 </body>
 </html>

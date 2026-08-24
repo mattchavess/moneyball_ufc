@@ -17,10 +17,12 @@ $resumo = calcularResumoGeral($conexao);
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <h1>DASHBOARD</h1>
     <p>Visão geral do plantel · Olá, <?php echo htmlspecialchars($_SESSION["usuario_nome"]); ?></p>
-    <a href="logout.php">Sair do Sistema</a>
 
     <!-- Cards de resumo geral -->
     <div class="cards-resumo">
@@ -91,16 +93,7 @@ $resumo = calcularResumoGeral($conexao);
         <p>Nenhum lutador cadastrado ainda. <a href="cadastrar_lutador.php">Cadastre o primeiro</a>.</p>
     <?php endif; ?>
 
-    <!-- Menu simples de navegação (enquanto não temos o menu lateral com CSS) -->
-    <h2>Navegação</h2>
-    <ul>
-        <li><a href="lutadores.php">Lutadores</a></li>
-        <li><a href="ranking.php">Ranking</a></li>
-        <li><a href="cadastrar_lutador.php">Cadastrar Lutador</a></li>
-        <?php if ($_SESSION["usuario_tipo"] === "admin"): ?>
-            <li><a href="cadastrar_usuario.php">Usuários</a></li>
-        <?php endif; ?>
-    </ul>
-
+    </main>
+</div>
 </body>
 </html>

@@ -30,6 +30,9 @@ if (!$lutador) {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <a href="lutadores.php">&larr; Voltar para Lutadores</a>
     |
@@ -108,5 +111,7 @@ if (!$lutador) {
         </table>
     <?php endif; ?>
 
+    </main>
+</div>
 </body>
 </html>

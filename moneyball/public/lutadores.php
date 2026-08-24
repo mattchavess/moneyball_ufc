@@ -26,6 +26,9 @@ $estilos = ["Todos", "Striker", "Grappler", "Wrestler", "Jiu-Jitsu", "Muay Thai"
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <h1>Lutadores</h1>
     <p><?php echo count($lutadores); ?> atletas encontrados</p>
@@ -91,5 +94,7 @@ $estilos = ["Todos", "Striker", "Grappler", "Wrestler", "Jiu-Jitsu", "Muay Thai"
         <?php endif; ?>
     </div>
 
+    </main>
+</div>
 </body>
 </html>

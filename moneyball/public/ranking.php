@@ -20,6 +20,9 @@ $ranking = calcularRanking($conexao, $categoria);
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <h1>Ranking Geral</h1>
     <p><?php echo count($ranking); ?> lutadores · ordenado por score de desempenho</p>
@@ -79,5 +82,7 @@ $ranking = calcularRanking($conexao, $categoria);
         <p>Nenhum lutador encontrado nessa categoria.</p>
     <?php endif; ?>
 
+    </main>
+</div>
 </body>
 </html>

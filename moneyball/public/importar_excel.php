@@ -37,6 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div class="layout">
+    <?php include __DIR__ . "/../includes/menu.php"; ?>
+    <main class="conteudo">
 
     <h1>Importar via Excel</h1>
     <p>Importe múltiplos lutadores de uma vez a partir de uma planilha (CSV)</p>
@@ -83,5 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="submit">Importar</button>
     </form>
 
+    </main>
+</div>
 </body>
 </html>
