@@ -2,22 +2,8 @@
 // ============================================
 // includes/menu.php
 // Menu lateral (sidebar) compartilhado.
-// Este arquivo espera que $_SESSION já exista
-// (ou seja, deve ser incluído DEPOIS de
-// verificar_sessao.php nas páginas).
-//
-// Como usar: dentro do <body> de cada página,
-// logo no início:
-//     <div class="layout">
-//         <?php include __DIR__ . "/../includes/menu.php"; ?>
-//         <main class="conteudo">
-//         ... conteúdo da página ...
-//         </main>
-//     </div>
 // ============================================
 
-// Pega o nome do arquivo atual (ex: "dashboard.php") pra saber
-// qual item do menu deve ficar destacado como "ativo"
 $paginaAtual = basename($_SERVER["PHP_SELF"]);
 
 function linkMenuAtivo($pagina, $paginaAtual) {
