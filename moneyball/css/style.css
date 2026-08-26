@@ -417,3 +417,139 @@ body {
     padding: 24px 32px;
     overflow-x: auto;
 }
+
+/* ---------- Gráficos do Dashboard (Chart.js) ---------- */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.chart-card {
+    background-color: #161616;
+    border: 1px solid #262626;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.chart-card h3 {
+    margin-bottom: 12px;
+}
+
+.chart-canvas-wrap {
+    position: relative;
+    height: 220px;
+    width: 100%;
+}
+
+/* ---------- Listas de distribuição (país, estilo) ---------- */
+.lista-distribuicao {
+    list-style: none;
+}
+
+.lista-distribuicao li {
+    margin-bottom: 12px;
+}
+
+.linha-distribuicao {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #e5e5e5;
+    margin-bottom: 4px;
+}
+
+.barra-mini-fundo {
+    background-color: #0d0d0d;
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.barra-mini {
+    background-color: #e10600;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* ---------- Tela de Comparação (VS) ---------- */
+.form-comparacao {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: none;
+}
+
+.coluna-comparacao {
+    flex: 1;
+    min-width: 220px;
+}
+
+.versus-form {
+    color: #e10600;
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.vs-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 24px 0;
+}
+
+.card-versus {
+    flex: 1;
+    background-color: #161616;
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.card-versus.vermelho {
+    border-color: #e10600;
+    background: linear-gradient(135deg, #2a0f0f, #161616);
+}
+
+.card-versus.azul {
+    border-color: #3b82f6;
+    background: linear-gradient(135deg, #0f1a2a, #161616);
+}
+
+.bandeira-versus {
+    font-size: 24px;
+}
+
+.card-versus h2 {
+    color: #ffffff;
+    margin: 8px 0 4px;
+}
+
+.temporada-versus {
+    color: #888888;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.score-versus {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 8px 0 0;
+}
+
+.versus-texto {
+    font-size: 28px;
+    font-weight: bold;
+    color: #555555;
+}
+
+.radar-wrap {
+    height: 320px;
+    max-width: 500px;
+    margin: 0 auto;
+}
