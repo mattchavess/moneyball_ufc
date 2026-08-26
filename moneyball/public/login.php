@@ -3,10 +3,13 @@ session_start();
 require_once __DIR__ . "/../config/conexao.php";
 require_once __DIR__ . "/../includes/funcoes_usuario.php";
 
-// Se já está logado, manda direto pro dashboard
-if (isset($_SESSION["usuario_id"])) {
-    header("Location: dashboard.php");
-    exit;
+// Sempre exige login ao acessar esta página, mesmo que já exista
+// uma sessão ativa. Encerra a sessão antiga (se houver) antes de
+// mostrar o formulário, exceto quando o form está sendo enviado.
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    session_unset();
+    session_destroy();
+    session_start();
 }
 
 $erro = "";
